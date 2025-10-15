@@ -13,22 +13,60 @@
 
 
   <script>
-  //console.log("Start");
+    console.log("Start");
 
-  // Получаем часть URL после '?'
-  const queryString = window.location.search; // "?[55,33,44]"
-  const arrayString = queryString.substring(1); // "[55,33,44]"
+    // Получаем часть URL после '?'
 
-  // Парсим строку в массив чисел
-  let arr = JSON.parse(arrayString); // [55, 33, 44]
+    const queryString = window.location.search; // ?A=55,33,44&B=21,32,43
+    console.log(queryString);
+    const arrayString = queryString.substring(1); // A=55,33,44&B=21,32,43
+    console.log(arrayString);
+    const arr = JSON.split("&"); // [[A=55,33,44], [B=21,32,43]]
+    const arrA = arr[0].substring(2); // [55,33,44] строка
+    const arrB = arr[1].substring(2); // [21,32,43] строка
+    console.log("arrA = " + arrA);
+    console.log("arrB = " + arrB);
 
-  // Сортируем как числа
-  arr.sort((a, b) => a - b);
+    const A = JSON.parse(arrA); // [55,33,44] числа
+    const B = JSON.parse(arrB); // [21,32,43] числа
 
-  // Выводим в заголовок окна
-  document.title = arr.toString(); // или arr.join(', ')
 
-  //console.log("End");
+    const A1 = A[0];
+    const A2 = A[1];
+    const A3 = A[2];
+    const meanA = (A1 + A2 + A3) / 3;
+    const a1 = A1 - meanA;
+    const a2 = A2 - meanA;
+    const a3 = A3 - meanA;
+
+
+
+    const B1 = B[0];
+    const B2 = B[1];
+    const B3 = B[2];
+    const meanB = (B1 + B2 + B3) / 3;
+    const b1 = B1 - meanB;
+    const b2 = B2 - meanB;
+    const b3 = B3 - meanB;
+
+
+    const chislitel = a1*b1 + a2*b2 + a3*b3;
+
+
+    const sum1 = Math.sqrt(a1*a1 + a2*a2 + a3*a3);
+    const sum2 = Math.sqrt(b1*b1 + b2*b2 + b3*b3);
+
+    const znamenatel = sum1 * sum2;
+
+
+    r = chislitel / znamenatel;
+
+
+
+    // Выводим в заголовок окна
+    document.title = r.toString();
+
+    console.log("End");
   </script>
 </body>
 </html>
