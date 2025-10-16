@@ -13,24 +13,20 @@
 
 
   <script>
-    console.log("Start");
-
     // Получаем часть URL после '?'
 
     const queryString = window.location.search; // ?A=55,33,44&B=21,32,43
-    console.log(queryString);
     const arrayString = queryString.substring(1); // A=55,33,44&B=21,32,43
-    console.log(arrayString);
-    const arr = JSON.split("&"); // [[A=55,33,44], [B=21,32,43]]
+    const arr = arrayString.split("&"); // [[A=55,33,44], [B=21,32,43]]
     const arrA = arr[0].substring(2); // [55,33,44] строка
     const arrB = arr[1].substring(2); // [21,32,43] строка
-    console.log("arrA = " + arrA);
-    console.log("arrB = " + arrB);
 
-    const A = JSON.parse(arrA); // [55,33,44] числа
-    const B = JSON.parse(arrB); // [21,32,43] числа
+    const A = arrA.split(",").map(Number); // [55,33,44] числа
+    const B = arrB.split(",").map(Number); // [21,32,43] числа
 
 
+
+    // Корреляция по Пирсону
     const A1 = A[0];
     const A2 = A[1];
     const A3 = A[2];
@@ -38,7 +34,6 @@
     const a1 = A1 - meanA;
     const a2 = A2 - meanA;
     const a3 = A3 - meanA;
-
 
 
     const B1 = B[0];
@@ -52,21 +47,19 @@
 
     const chislitel = a1*b1 + a2*b2 + a3*b3;
 
-
     const sum1 = Math.sqrt(a1*a1 + a2*a2 + a3*a3);
     const sum2 = Math.sqrt(b1*b1 + b2*b2 + b3*b3);
 
     const znamenatel = sum1 * sum2;
 
 
-    r = chislitel / znamenatel;
+    const r = (chislitel / znamenatel).toFixed(3);
 
 
 
     // Выводим в заголовок окна
     document.title = r.toString();
 
-    console.log("End");
   </script>
 </body>
 </html>
