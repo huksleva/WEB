@@ -7,7 +7,7 @@
 </head>
 <body>
   <h4>1153307</h4>
-  <button type="button" name="button" onclick="btnClick()" id="bt">Тык, жмяк!</button>
+  <button type="button" onclick="btnClick()" id="bt">Тык, жмяк!</button>
 
 
   <script>
@@ -21,7 +21,6 @@
       for (let i = 0; i < 1000; i++) {
         const newDiv = document.createElement('div');
         newDiv.id = "i" + i; // .toString() не обязателен — автоматическое преобразование
-        // newDiv.textContent = "LOOOOOOL";
         article.appendChild(newDiv);
       }
     }
