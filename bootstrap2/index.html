@@ -2,29 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="/css/master.css">
+    <!-- Подключаем Bootstrap CSS вручную -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="container-fluid">
-    <div class="row g-0" style="height: 100vh;">
-      <!-- Колонка 1 (2) -->
-      <div class="col-2 bg-light"></div>
-
-      <!-- Колонка 2 (8) — кнопка -->
-      <div class="col-8 d-flex">
-        <button
-          type="button"
-          class="btn btn-danger w-100 h-100 fs-1"
-          data-bs-toggle="modal"
-          data-bs-target="#timeModal"
-        >
-          Показать время
-        </button>
-      </div>
-
-      <!-- Колонка 3 (2) -->
-      <div class="col-2 bg-light"></div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8"><button type="button" class="btn btn-danger">Показать время</button></div>
+      <div class="col-2"></div>
     </div>
-  </div>
+
+
+
+
+    <!-- Подключаем JS как модуль -->
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
