@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>1153307</title>
+</head>
+<body>
+  <input type="text" id="wordInput" placeholder="Введите русское слово"/>
+  <h1 id="translation">Здесь будет перевод</h1>
+
+  <script>
+    const input = document.getElementById('wordInput');
+    const h1 = document.getElementById('translation');
+
+    // API-ключ
+    const API_KEY = 'dict.1.1.20251217T174903Z.382cd3382d59a127.5f324aee9d09d9e191f6f45e09d1cec720a7e86b';
+    const API_URL = 'https://dictionary.yandex.net/api/v1/dicservice.json/lookup';
+
+    let timeoutId;
+
+    input.addEventListener('input', () => {
+      const word = input.value.trim();
+      h1.textContent = word ? 'Переводим...' : 'Здесь будет перевод';
+
+      if (timeoutId) clearTimeout(timeoutId);
+      if (!word) return;
+
+      timeoutId = setTimeout(async () => {
+        try {
+          const url = `${API_URL}?key=${API_KEY}&lang=ru-en&text=${encodeURIComponent(word)}`;
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data.def?.[0]?.tr?.[0]?.text) {
+            h1.textContent = data.def[0].tr[0].text;
+          } else {
+            h1.textContent = 'Перевод не найден';
+          }
+        } catch (error) {
+          h1.textContent = 'Ошибка подключения';
+          console.error('Ошибка:', error);
+        }
+      }, 500);
+    });
+  </script>
+</body>
+</html>
