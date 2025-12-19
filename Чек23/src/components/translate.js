@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const doTranslation = async (input, languageCode, cancelToken) => {
-  try {
-    const { data } = await axios.post(
-      "dict.1.1.20251217T174903Z.382cd3382d59a127.5f324aee9d09d9e191f6f45e09d1cec720a7e86b",
-      {
-        q: input,
-        target: languageCode
-      },
-      { cancelToken: cancelToken.token }
-    );
+const doTranslation = async (input, languageCode) => {
+    let y = 'https://dictionary.yandex.net/api/v1/dicservice.json';
+    let url = `${y}/lookup?key=dict.1.1.20251218T113752Z.88cfae23595f08b6.b5ebcbe0dcc827e46a889a5001c9ab75d10c32e3&lang=ru-${languageCode}&text=${input}`;
 
-    return data.data.translations[0].translatedText;
-  } catch (err) {
-    return "";
-  }
+    try {
+      const { data } = await axios.post(url);
+      return data.def[0].tr[0].text;
+    } catch (err) {
+      return ""
+    }
 };
 
 export default ({ language, text }) => {
