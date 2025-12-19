@@ -1,15 +1,40 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap w/ Vite</title>
-    <script type="module" src="./js/main.js"></script>
   </head>
+
   <body>
-    <div class="container py-4 px-3 mx-auto">
-      <h1>Hello, Bootstrap and Vite!</h1>
-      <button class="btn btn-primary">Primary button</button>
+    <!-- Контейнер с 3 колонками -->
+    <div class="container-fluid vh-100 d-flex align-items-center">
+      <div class="row w-100">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <button type="button" class="btn btn-danger btn-lg w-100" id="klatz_btn">Показать время</button>
+        </div>
+        <div class="col-2"></div>
+      </div>
     </div>
+
+    <!-- Модальное окно -->
+   <div class="modal fade" id="timeModal" tabindex="-1">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title">Тоц Леонид Александрович</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+         </div>
+         <div class="modal-body text-center" id="modalBody">
+           <!-- Сюда вставится время -->
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <script type="module" src="./index.js"></script>
+   
   </body>
 </html>
