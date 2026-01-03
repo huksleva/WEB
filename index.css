@@ -1,17 +1,18 @@
 /* portfolio.css */
 
 /* Общие стили */
+/* Тёмная тема */
 body {
-  background-color: #f9f9f9;
+  background-color: #121212;
+  color: #ffffff;
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Анимация карточек */
 .card {
-  margin-bottom: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 8px;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.25s ease;
 }
 
 .card:hover {
@@ -32,6 +33,21 @@ body {
 .button.is-link.is-small {
   margin-top: 0.75rem;
 }
+
+
+/* Особое выделение для последних трёх заданий (bootstrap 1–3) */
+.bootstrap_card {
+  border-top: 3px solid #48c78e;
+  border-radius: 8px;
+}
+
+.bootstrap_card:hover {
+  border-top-color: #25a672;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(72, 199, 142, 0.2);
+}
+
+
 
 /* Футер */
 footer.footer {
