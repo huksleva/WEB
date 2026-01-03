@@ -9,7 +9,97 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="index.css">
+  <!-- <link rel="stylesheet" href="index.css"> -->
+
+
+  <style>
+    body {
+      background-color: #121212 !important;
+      color: #ffffff !important;
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Фон секций и контейнеров */
+    .section, .container {
+      background-color: transparent !important;
+    }
+
+    /* Карточки — тёмные */
+    .card {
+      background-color: #1e1e1e !important;
+      border: 1px solid #333 !important;
+      margin-bottom: 1.5rem;
+      transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.25s ease;
+      border-radius: 8px;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Текст внутри карточек */
+    .card-content {
+      padding: 2rem !important; /* увеличиваем отступ сверху */
+      background-color: transparent !important;
+    }
+
+    .title.is-5,
+    .subtitle.is-6 {
+      color: #ffffff !important;
+    }
+
+    /* Кнопки */
+    .button.is-link.is-small {
+      background-color: #4d7cff !important;
+      color: white !important;
+      border: none !important;
+      margin-top: 0.75rem;
+    }
+
+    .button.is-link.is-small:hover {
+      background-color: #3a6ae0 !important;
+    }
+
+    /* Последние три карточки — используем правильный селектор */
+    .bootstrap_card {
+      background-color: #1e1e1e !important;
+      border: 1px solid #333 !important;
+      border-top: 3px solid #48c78e !important;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.25s ease;
+    }
+
+    .bootstrap_card:hover {
+      border-top-color: #25a672 !important;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(72, 199, 142, 0.2) !important;
+    }
+
+    /* Футер */
+    footer.footer {
+      background-color: #1e1e1e !important;
+      color: #ffffff !important;
+      margin-top: 3rem;
+      padding: 2rem 0;
+    }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      .column.is-4 {
+        flex: none;
+        width: 100% !important;
+      }
+    }
+  </style>
+
+
+
+
+
+
 </head>
 <body>
 
@@ -228,7 +318,7 @@
     </div>
   </footer>
 
-  <!-- Ваш JS (в конце body) -->
-  <script src="portfolio.js"></script>
+  <!-- JS -->
+  <script src="index.js"></script>
 </body>
 </html>

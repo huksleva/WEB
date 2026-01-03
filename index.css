@@ -88,3 +88,11 @@ footer.footer {
     width: 100% !important;
   }
 }
+
+/* Принудительно делаем текст внутри карточек белым */
+.card .title.is-5,
+.card .subtitle.is-6,
+.bootstrap_card .title.is-5,
+.bootstrap_card .subtitle.is-6 {
+  color: #ffffff !important;
+}
