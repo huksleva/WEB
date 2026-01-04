@@ -2,7 +2,7 @@ import { resolve } from 'path';
 
 export default {
   root: resolve(__dirname, 'src'),
-  base: '/bootstrap3/', // ← ОБЯЗАТЕЛЬНО: замените на имя вашего репозитория!
+  base: './', // ← ОБЯЗАТЕЛЬНО: замените на имя вашего репозитория!
   build: {
     outDir: resolve(__dirname, 'dist'), // лучше использовать resolve
     rollupOptions: {
