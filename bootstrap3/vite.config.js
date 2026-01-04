@@ -1,24 +1,27 @@
-import { resolve } from 'path'
+import { resolve } from 'path';
 
 export default {
   root: resolve(__dirname, 'src'),
+  base: '/bootstrap3/', // ← ОБЯЗАТЕЛЬНО: замените на имя вашего репозитория!
   build: {
-    outDir: '../dist'
+    outDir: resolve(__dirname, 'dist'), // лучше использовать resolve
+    rollupOptions: {
+      input: resolve(__dirname, 'src/index.html'), // явно укажите входной HTML
+    },
   },
   server: {
-    port: 8080
+    port: 8080,
   },
-  // Optional: Silence Sass deprecation warnings. See note below.
   css: {
-     preprocessorOptions: {
-        scss: {
-          silenceDeprecations: [
-            'import',
-            'mixed-decls',
-            'color-functions',
-            'global-builtin',
-          ],
-        },
-     },
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: [
+          'import',
+          'mixed-decls',
+          'color-functions',
+          'global-builtin',
+        ],
+      },
+    },
   },
-}
+};
